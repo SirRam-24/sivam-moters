@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% block title %}Sri Sivam Motors | Reliable Care for Every Car{% endblock %}
+
+{% block head %}
+<style>
+    /* Inline specific hero background to avoid needing local images if not generated yet */
+    .hero-bg {
+        background-image: url('https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative h-[90vh] flex items-center justify-center hero-bg">
+    <div class="absolute inset-0 bg-brand-900/80 hero-overlay mix-blend-multiply"></div>
+    
+    <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto animate-fade-in">
+        <span class="inline-block py-1 px-3 rounded-full bg-brand-500/20 text-brand-500 font-semibold text-sm mb-6 border border-brand-500/30 backdrop-blur-sm">
+            Sri Sivam Motors &bull; Dindigul
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight tracking-tight">
+            Find Your Dream Car or <br/><span class="text-gradient">Service Your Vehicle Today</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
+            Reliable care for every car. From top-tier mechanical repairs to premium rental vehicles, we ensure you always drive with confidence.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#cars" class="btn-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg flex items-center justify-center gap-3">
+                <i class="fa-solid fa-car"></i> Browse Cars
+            </a>
+            <a href="#services" class="btn-outline px-8 py-4 rounded-full font-bold text-lg backdrop-blur-sm flex items-center justify-center gap-3">
+                <i class="fa-solid fa-wrench"></i> Book Service
+            </a>
+        </div>
+    </div>
+    
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <a href="#services" class="text-white/50 hover:text-white transition">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </a>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section id="services" class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-in delay-100">
+            <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">Our Expertise</h2>
+            <h3 class="text-4xl font-heading font-bold text-brand-900 mb-4">Comprehensive Car Services</h3>
+            <p class="text-gray-600 text-lg">Modern tools, skilled mechanics, and a strong commitment to accurate diagnosis and affordable pricing.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Service 1 -->
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100">
+                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
+                    <i class="fa-solid fa-oil-can text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 group-hover:text-white">Oil Change</h4>
+                <p class="text-gray-600 mb-6 group-hover:text-gray-200">Periodic maintenance and premium oil replacement for engine longevity.</p>
+                <a href="{{ url_for('contact') }}?subject=Oil+Change" class="font-semibold text-brand-600 group-hover:text-white inline-flex items-center gap-2">
+                    Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100">
+                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
+                    <i class="fa-solid fa-engine text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 group-hover:text-white">Engine Repair</h4>
+                <p class="text-gray-600 mb-6 group-hover:text-gray-200">Advanced diagnostics, overhaul, and repairs by expert mechanical specialists.</p>
+                <a href="{{ url_for('contact') }}?subject=Engine+Repair" class="font-semibold text-brand-600 group-hover:text-white inline-flex items-center gap-2">
+                    Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100">
+                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
+                    <i class="fa-solid fa-snowflake text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 group-hover:text-white">AC Service</h4>
+                <p class="text-gray-600 mb-6 group-hover:text-gray-200">Complete air conditioning diagnostics, gas refilling, and cooling system repair.</p>
+                <a href="{{ url_for('contact') }}?subject=AC+Service" class="font-semibold text-brand-600 group-hover:text-white inline-flex items-center gap-2">
+                    Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100">
+                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
+                    <i class="fa-solid fa-tire text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 group-hover:text-white">Wheel Alignment</h4>
+                <p class="text-gray-600 mb-6 group-hover:text-gray-200">Precision computer alignment and balancing for smooth driving and tire life.</p>
+                <a href="{{ url_for('contact') }}?subject=Wheel+Alignment" class="font-semibold text-brand-600 group-hover:text-white inline-flex items-center gap-2">
+                    Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+            <p class="text-gray-500 mb-4">Also offering: Brake Inspection, Suspension Work, Electrical Repairs, & Computer Scanning.</p>
+            <a href="{{ url_for('contact') }}" class="btn-primary inline-block px-8 py-3 rounded-full font-semibold shadow-lg">View All Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Cars Section -->
+<section id="cars" class="py-24 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 animate-fade-in delay-200">
+            <div class="max-w-2xl">
+                <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">Premium Fleet</h2>
+                <h3 class="text-4xl font-heading font-bold text-brand-900">Featured Cars</h3>
+            </div>
+            <div class="mt-4 md:mt-0">
+                <span class="text-gray-500 text-sm italic">Showing top highlights</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% if cars %}
+                {% for car in cars %}
+                <div class="glass-card rounded-2xl overflow-hidden bg-white">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="{{ car.image_url if car.image_url else url_for('static', filename=car.image_path) }}" alt="{{ car.name }}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-brand-900 shadow">
+                            {{ car.type }}
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-2xl font-bold font-heading text-brand-900">{{ car.name }}</h4>
+                            <span class="text-brand-600 font-bold text-lg">{{ car.price }}</span>
+                        </div>
+                        <div class="flex gap-4 text-sm text-gray-500 mb-6 border-t border-gray-100 pt-4">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Quality Inspected</span>
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Ready to Drive</span>
+                        </div>
+                        <a href="{{ url_for('contact') }}?subject=Inquiry+about+{{ car.name }}" class="btn-outline w-full block text-center py-3 rounded-lg font-semibold text-brand-900 border-gray-300 hover:text-white hover:border-brand-500">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-span-full text-center py-12">
+                    <div class="inline-block p-6 rounded-full bg-gray-100 text-gray-400 mb-4">
+                        <i class="fa-solid fa-car-side text-4xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-600 mb-2">Inventory Loading Soon</h4>
+                    <p class="text-gray-500">Check back later for our premium selection of cars.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- About / Trust Section -->
+<section id="about" class="py-24 bg-brand-900 text-white relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sri Sivam Motors Workshop" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-900/90 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6">
+                    <p class="text-xl font-heading font-bold text-white mb-2">Modern Diagnostic Tools</p>
+                    <p class="text-gray-300 text-sm">Ensuring precise repairs for every vehicle.</p>
+                </div>
+            </div>
+            
+            <div>
+                <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">Why Choose Us</h2>
+                <h3 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Trust, Built on Reliability</h3>
+                <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                    Sri Sivam Motors is a newly established automobile workshop in Dindigul, created with a clear goal — to provide reliable, honest, and high-quality car mechanical services. 
+                    <br><br>
+                    Though new, our workshop is driven by skilled mechanics, modern tools, and a strong commitment to customer satisfaction. We focus on accurate diagnosis, quality workmanship, and affordable pricing for all types of cars.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-8 mt-10 border-t border-brand-800 pt-10">
+                    <div>
+                        <div class="text-4xl font-heading font-bold text-brand-500 mb-2">10+</div>
+                        <div class="text-sm text-gray-400 font-semibold uppercase tracking-wider">Years Experience<br><span class="text-xs normal-case opacity-70">(Combined Team)</span></div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-heading font-bold text-brand-500 mb-2">1000+</div>
+                        <div class="text-sm text-gray-400 font-semibold uppercase tracking-wider">Happy Customers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sri Sivam Motors | Reliable Care for Every Car{% endblock %}</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Sri Sivam Motors in Dindigul offers reliable, honest, and high-quality car mechanical services. We handle engine repair, AC service, wheel alignment, and more for all cars.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (CDN for simplicity as requested, configurable) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            900: '#02180d',
+                            800: '#042f1a',
+                            700: '#0a4f2e',
+                            600: '#059669',
+                            500: '#10B981',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    {% block head %}{% endblock %}
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-brand-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="{{ url_for('index') }}" class="flex-shrink-0 flex items-center gap-3">
+                        <i class="fa-solid fa-car-wrench text-brand-500 text-3xl"></i>
+                        <div>
+                            <span class="font-heading font-bold text-2xl tracking-tight block">Sri Sivam Motors</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">All Cars Mechanical Works</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="{{ url_for('index') }}" class="hover:text-brand-500 transition-colors">Home</a>
+                    <a href="{{ url_for('index') }}#services" class="hover:text-brand-500 transition-colors">Services</a>
+                    <a href="{{ url_for('index') }}#cars" class="hover:text-brand-500 transition-colors">Cars</a>
+                    <a href="{{ url_for('index') }}#about" class="hover:text-brand-500 transition-colors">About Us</a>
+                    <a href="{{ url_for('contact') }}" class="btn-primary px-6 py-2 rounded-full font-semibold">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-brand-500 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-900 border-t border-brand-800 absolute w-full left-0 shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2 font-medium flex flex-col">
+                <a href="{{ url_for('index') }}" class="block px-3 py-3 rounded-md hover:bg-brand-800 hover:text-brand-500 transition-colors">Home</a>
+                <a href="{{ url_for('index') }}#services" class="block px-3 py-3 rounded-md hover:bg-brand-800 hover:text-brand-500 transition-colors">Services</a>
+                <a href="{{ url_for('index') }}#cars" class="block px-3 py-3 rounded-md hover:bg-brand-800 hover:text-brand-500 transition-colors">Cars</a>
+                <a href="{{ url_for('index') }}#about" class="block px-3 py-3 rounded-md hover:bg-brand-800 hover:text-brand-500 transition-colors">About Us</a>
+                <a href="{{ url_for('contact') }}" class="block px-3 py-3 mt-4 text-center btn-primary rounded-full font-semibold">Contact Us</a>
+            </div>
+        </div>
+        
+        <script>
+            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+                const icon = this.querySelector('i');
+                if (menu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    const icon = document.getElementById('mobile-menu-btn').querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        </script>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 absolute top-20 left-0 right-0 z-40">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="p-4 rounded-lg shadow-md mb-4 flex items-center justify-between {% if category == 'success' %}bg-green-100 border-l-4 border-green-500 text-green-700{% else %}bg-red-100 border-l-4 border-red-500 text-red-700{% endif %} animate-fade-in">
+                        <div class="flex items-center">
+                            <i class="fa-solid {% if category == 'success' %}fa-circle-check{% else %}fa-circle-exclamation{% endif %} mr-3 text-xl"></i>
+                            <span class="font-medium">{{ message }}</span>
+                        </div>
+                        <button onclick="this.parentElement.style.display='none'" class="text-gray-500 hover:text-gray-700">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Sticky Quick Action Section -->
+    <div class="fixed bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-50 bg-brand-900/95 backdrop-blur-md border border-white/20 rounded-full shadow-2xl p-2 md:p-3 px-6 md:px-10">
+        <div class="flex justify-center items-center gap-8 md:gap-16">
+            <a href="tel:+919865125498" class="flex flex-col items-center justify-center text-white hover:text-brand-500 transition group px-2">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-800 flex items-center justify-center group-hover:bg-white group-hover:text-brand-900 transition mb-1">
+                    <i class="fa-solid fa-phone text-lg"></i>
+                </div>
+                <span class="text-[10px] md:text-sm font-semibold whitespace-nowrap">Call Now</span>
+            </a>
+            <a href="https://wa.me/919865125498" target="_blank" class="flex flex-col items-center justify-center text-white hover:text-green-400 transition group px-2">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-green-600 flex items-center justify-center group-hover:bg-white group-hover:text-green-600 transition mb-1">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                </div>
+                <span class="text-[10px] md:text-sm font-semibold whitespace-nowrap">WhatsApp</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 text-white pt-16 pb-24 md:pb-8 border-t border-brand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <a href="{{ url_for('index') }}" class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-car-wrench text-brand-500 text-3xl"></i>
+                        <div>
+                            <span class="font-heading font-bold text-2xl tracking-tight block">Sri Sivam Motors</span>
+                            <span class="text-xs text-brand-500 uppercase tracking-wider block">Reliable Care for Every Car.</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 mb-6 line-clamp-3">
+                        A newly established automobile workshop in Dindigul providing reliable, honest, and high-quality car mechanical services with modern tools and skilled mechanics.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-heading text-xl font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="{{ url_for('index') }}#services" class="hover:text-brand-500 transition"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand-500"></i> Our Services</a></li>
+                        <li><a href="{{ url_for('index') }}#cars" class="hover:text-brand-500 transition"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand-500"></i> Featured Cars</a></li>
+                        <li><a href="{{ url_for('index') }}#about" class="hover:text-brand-500 transition"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand-500"></i> About Us</a></li>
+                        <li><a href="{{ url_for('contact') }}" class="hover:text-brand-500 transition"><i class="fa-solid fa-chevron-right text-xs mr-2 text-brand-500"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-heading text-xl font-semibold mb-6">Contact Info</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-500"></i>
+                            <span>Indira Nagar 3rd Street,<br>Behind M.G. Stall,<br>Dindigul – 1</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i class="fa-solid fa-phone text-brand-500"></i>
+                            <a href="tel:+919865125498" class="hover:text-white transition">98651 25498</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-brand-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; {{ moment_year|default('2026') }} Sri Sivam Motors. All rights reserved.</p>
+                <p class="mt-2"><a href="{{ url_for('admin_login') }}" class="hover:text-brand-500 transition">Admin Login</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
