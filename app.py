@@ -1,6 +1,8 @@
 import os
+import json
+import requests
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, Response
 from werkzeug.utils import secure_filename
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -194,6 +196,51 @@ def delete_car(car_id):
         flash('Car deleted successfully', 'success')
         
     return redirect(url_for('admin_dashboard'))
+@app.route('/api/chat', methods=['POST'])
+def chat():
+    data = request.json
+    messages = data.get('messages', [])
+    
+    def generate():
+        api_key = "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"
+        if not api_key:
+            yield f"data: {json.dumps({'error': 'NVIDIA_API_KEY is not configured on the server.'})}\n\n"
+            return
+            
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Accept": "text/event-stream"
+        }
+        
+        system_instruction = "You are a helpful, professional customer support assistant for Sri Sivam Motors, a premium car workshop in Dindigul. You provide information about our services (Oil Change, Engine Repair, AC Service, Wheel Alignment), our featured cars, and our location Indira Nagar 3rd Street, Behind M.G. Stall, Dindigul – 1. Owner Phone No : 98651 25498  Keep responses concise, friendly, and helpful. Do not use complex markdown or long paragraphs."
+        full_messages = [{"role": "system", "content": system_instruction}] + messages
+        
+        payload = {
+            "model": "meta/llama-3.1-70b-instruct",
+            "messages": full_messages,
+            "max_tokens": 1024,
+            "temperature": 0.60,
+            "top_p": 0.95,
+            "stream": True,
+        }
+        
+        try:
+            response = requests.post(
+                "https://integrate.api.nvidia.com/v1/chat/completions",
+                headers=headers,
+                json=payload,
+                stream=True
+            )
+            
+            for line in response.iter_lines():
+                if line:
+                    decoded_line = line.decode('utf-8')
+                    if decoded_line.startswith('data:'):
+                        yield f"{decoded_line}\n\n"
+        except Exception as e:
+            yield f"data: {json.dumps({'error': str(e)})}\n\n"
+            
+    return Response(generate(), mimetype='text/event-stream')
 
 if __name__ == '__main__':
     # Ensure upload folder exists
