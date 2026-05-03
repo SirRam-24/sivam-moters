@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+
+{% block title %}Book a Service - Sri Sivam Motors{% endblock %}
+
+{% block content %}
+<section class="min-h-screen pt-32 pb-24 bg-gray-50 dark:bg-brand-950 transition-colors duration-300">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12 animate-fade-in">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-900 dark:text-white mb-4">Book Your Service</h1>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">Fast, reliable, and professional auto care. Schedule your appointment today.</p>
+        </div>
+
+        <div class="bg-white dark:bg-brand-900 rounded-3xl shadow-2xl border border-gray-100 dark:border-brand-800 overflow-hidden animate-slide-up relative">
+            
+            <!-- Progress Bar -->
+            <div class="bg-gray-100 dark:bg-brand-950/50 h-2 w-full absolute top-0 left-0">
+                <div id="progress-bar" class="h-full bg-brand-500 transition-all duration-500" style="width: 25%;"></div>
+            </div>
+
+            <!-- Steps Indicator -->
+            <div class="hidden sm:flex justify-between items-center px-10 py-6 border-b border-gray-100 dark:border-brand-800 bg-gray-50/50 dark:bg-brand-900/50">
+                <div class="step-indicator flex flex-col items-center gap-2 text-brand-500 font-semibold" data-step="1">
+                    <div class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center shadow-md">1</div>
+                    <span class="text-xs uppercase tracking-wider">Service</span>
+                </div>
+                <div class="h-[1px] flex-1 bg-gray-200 dark:bg-brand-700 mx-4"></div>
+                <div class="step-indicator flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500 font-semibold" data-step="2">
+                    <div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-brand-800 flex items-center justify-center transition-colors">2</div>
+                    <span class="text-xs uppercase tracking-wider">Vehicle</span>
+                </div>
+                <div class="h-[1px] flex-1 bg-gray-200 dark:bg-brand-700 mx-4"></div>
+                <div class="step-indicator flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500 font-semibold" data-step="3">
+                    <div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-brand-800 flex items-center justify-center transition-colors">3</div>
+                    <span class="text-xs uppercase tracking-wider">Schedule</span>
+                </div>
+                <div class="h-[1px] flex-1 bg-gray-200 dark:bg-brand-700 mx-4"></div>
+                <div class="step-indicator flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500 font-semibold" data-step="4">
+                    <div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-brand-800 flex items-center justify-center transition-colors">4</div>
+                    <span class="text-xs uppercase tracking-wider">Contact</span>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form id="booking-form" action="{{ url_for('submit_booking') }}" method="POST" class="p-6 md:p-10">
+                
+                <!-- STEP 1: Service Selection -->
+                <div class="form-step" id="step-1">
+                    <h2 class="text-2xl font-heading font-bold text-brand-900 dark:text-white mb-6">What does your car need?</h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Options -->
+                        <label class="relative cursor-pointer group">
+                            <input type="radio" name="service" value="Oil Change & Filter" class="peer sr-only" required>
+                            <div class="p-6 rounded-2xl border-2 border-gray-200 dark:border-brand-700 hover:border-brand-500 dark:hover:border-brand-500 peer-checked:border-brand-500 peer-checked:bg-brand-50 dark:peer-checked:bg-brand-800/50 transition-all text-center">
+                                <i class="fa-solid fa-oil-can text-3xl text-brand-500 mb-3"></i>
+                                <h3 class="font-bold text-gray-800 dark:text-white">Oil Change & Filter</h3>
+                            </div>
+                            <div class="absolute top-4 right-4 text-brand-500 opacity-0 peer-checked:opacity-100 transition-opacity">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </div>
+                        </label>
+
+                        <label class="relative cursor-pointer group">
+                            <input type="radio" name="service" value="Engine Repair" class="peer sr-only">
+                            <div class="p-6 rounded-2xl border-2 border-gray-200 dark:border-brand-700 hover:border-brand-500 dark:hover:border-brand-500 peer-checked:border-brand-500 peer-checked:bg-brand-50 dark:peer-checked:bg-brand-800/50 transition-all text-center">
+                                <i class="fa-solid fa-gears text-3xl text-brand-500 mb-3"></i>
+                                <h3 class="font-bold text-gray-800 dark:text-white">Engine Repair</h3>
+                            </div>
+                            <div class="absolute top-4 right-4 text-brand-500 opacity-0 peer-checked:opacity-100 transition-opacity">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </div>
+                        </label>
+
+                        <label class="relative cursor-pointer group">
+                            <input type="radio" name="service" value="A/C Servicing" class="peer sr-only">
+                            <div class="p-6 rounded-2xl border-2 border-gray-200 dark:border-brand-700 hover:border-brand-500 dark:hover:border-brand-500 peer-checked:border-brand-500 peer-checked:bg-brand-50 dark:peer-checked:bg-brand-800/50 transition-all text-center">
+                                <i class="fa-solid fa-snowflake text-3xl text-brand-500 mb-3"></i>
+                                <h3 class="font-bold text-gray-800 dark:text-white">A/C Servicing</h3>
+                            </div>
+                            <div class="absolute top-4 right-4 text-brand-500 opacity-0 peer-checked:opacity-100 transition-opacity">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </div>
+                        </label>
+
+                        <label class="relative cursor-pointer group">
+                            <input type="radio" name="service" value="General Inspection" class="peer sr-only">
+                            <div class="p-6 rounded-2xl border-2 border-gray-200 dark:border-brand-700 hover:border-brand-500 dark:hover:border-brand-500 peer-checked:border-brand-500 peer-checked:bg-brand-50 dark:peer-checked:bg-brand-800/50 transition-all text-center">
+                                <i class="fa-solid fa-car-burst text-3xl text-brand-500 mb-3"></i>
+                                <h3 class="font-bold text-gray-800 dark:text-white">General Inspection</h3>
+                            </div>
+                            <div class="absolute top-4 right-4 text-brand-500 opacity-0 peer-checked:opacity-100 transition-opacity">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="mt-8 flex justify-end">
+                        <button type="button" class="btn-primary py-3 px-8 rounded-full font-bold shadow-lg shadow-brand-500/30 next-btn" data-next="2">Next Step <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Vehicle Details -->
+                <div class="form-step hidden" id="step-2">
+                    <h2 class="text-2xl font-heading font-bold text-brand-900 dark:text-white mb-6">Tell us about your vehicle</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Car Make</label>
+                                <select name="make" class="w-full bg-gray-50 dark:bg-brand-950 border border-gray-200 dark:border-brand-700 rounded-xl px-4 py-3 text-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" required>
+                                    <option value="" disabled selected>Select Make</option>
+                                    <option value="Maruti Suzuki">Maruti Suzuki</option>
+                                    <option value="Hyundai">Hyundai</option>
+                                    <option value="Honda">Honda</option>
+                                    <option value="Toyota">Toyota</option>
+                                    <option value="Tata">Tata</option>
+                                    <option value="Mahindra">Mahindra</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Car Model</label>
+                                <input type="text" name="model" placeholder="e.g. Swift, City, Innova" class="w-full bg-gray-50 dark:bg-brand-950 border border-gray-200 dark:border-brand-700 rounded-xl px-4 py-3 text-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Manufacturing Year</label>
+                            <input type="number" name="year" min="1990" max="2026" placeholder="e.g. 2018" class="w-full bg-gray-50 dark:bg-brand-950 border border-gray-200 dark:border-brand-700 rounded-xl px-4 py-3 text-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" required>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 flex justify-between">
+                        <button type="button" class="btn-outline py-3 px-8 rounded-full font-bold prev-btn" data-prev="1"><i class="fa-solid fa-arrow-left mr-2"></i> Back</button>
+                        <button type="button" class="btn-primary py-3 px-8 rounded-full font-bold shadow-lg shadow-brand-500/30 next-btn" data-next="3">Next Step <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Schedule -->
+                <div class="form-step hidden" id="step-3">
+                    <h2 class="text-2xl font-heading font-bold text-brand-900 dark:text-white mb-6">When should we expect you?</h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Select Date</label>
+                            <input type="date" name="date" id="booking-date" class="w-full bg-gray-50 dark:bg-brand-950 border border-gray-200 dark:border-brand-700 rounded-xl px-4 py-3 text-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Select Time Slot</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="time" value="09:00 AM" class="peer sr-only" required>
+                                    <div class="py-3 px-4 rounded-xl border border-gray-200 dark:border-brand-700 text-center peer-checked:bg-brand-500 peer-checked:border-brand-500 peer-checked:text-white hover:border-brand-500 text-gray-700 dark:text-gray-300 transition">
+                                        09:00 AM
+                                    </div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="time" value="11:30 AM" class="peer sr-only">
+                                    <div class="py-3 px-4 rounded-xl border border-gray-200 dark:border-brand-700 text-center peer-checked:bg-brand-500 peer-checked:border-brand-500 peer-checked:text-white hover:border-brand-500 text-gray-700 dark:text-gray-300 transition">
+                                        11:30 AM
+                                    </div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="time" value="02:00 PM" class="peer sr-only">
+                                    <div class="py-3 px-4 rounded-xl border border-gray-200 dark:border-brand-700 text-center peer-checked:bg-brand-500 peer-checked:border-brand-500 peer-checked:text-white hover:border-brand-500 text-gray-700 dark:text-gray-300 transition">
+                                        02:00 PM
+                                    </div>
+                                </label>
+                                <label class="relative cursor-pointer">
+                                    <input type="radio" name="time" value="04:30 PM" class="peer sr-only">
+                                    <div class="py-3 px-4 rounded-xl border border-gray-200 dark:border-brand-700 text-center peer-checked:bg-brand-500 peer-checked:border-brand-500 peer-checked:text-white hover:border-brand-500 text-gray-700 dark:text-gray-300 transition">
+                                        04:30 PM
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 flex justify-between">
+                        <button type="button" class="btn-outline py-3 px-8 rounded-full font-bold prev-btn" data-prev="2"><i class="fa-solid fa-arrow-left mr-2"></i> Back</button>
+                        <button type="button" class="btn-primary py-3 px-8 rounded-full font-bold shadow-lg shadow-brand-500/30 next-btn" data-next="4">Next Step <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Contact Details -->
+                <div class="form-step hidden" id="step-4">
+                    <h2 class="text-2xl font-heading font-bold text-brand-900 dark:text-white mb-6">Your Details</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                            <input type="text" name="name" class="w-full bg-gray-50 dark:bg-brand-950 border border-gray-200 dark:border-brand-700 rounded-xl px-4 py-3 text-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Phone Number</label>
+                            <input type="tel" name="phone" placeholder="+91" class="w-full bg-gray-50 dark:bg-brand-950 border border-gray-200 dark:border-brand-700 rounded-xl px-4 py-3 text-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" required>
+                        </div>
+                        
+                        <div class="bg-brand-50 dark:bg-brand-900/40 p-4 rounded-xl border border-brand-200 dark:border-brand-800 flex items-start gap-4">
+                            <i class="fa-solid fa-circle-info text-brand-500 mt-1"></i>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">By confirming this booking, you agree that our team will contact you to finalize the details if needed.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 flex justify-between">
+                        <button type="button" class="btn-outline py-3 px-8 rounded-full font-bold prev-btn" data-prev="3"><i class="fa-solid fa-arrow-left mr-2"></i> Back</button>
+                        <button type="submit" class="bg-brand-500 hover:bg-brand-600 text-white py-3 px-8 rounded-full font-bold shadow-lg shadow-brand-500/30 transition-all transform hover:-translate-y-1">Confirm Booking <i class="fa-solid fa-check ml-2"></i></button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Scripts for Multi-step Form -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Set minimum date to today
+        const dateInput = document.getElementById('booking-date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+
+        const nextBtns = document.querySelectorAll('.next-btn');
+        const prevBtns = document.querySelectorAll('.prev-btn');
+        const steps = document.querySelectorAll('.form-step');
+        const indicators = document.querySelectorAll('.step-indicator');
+        const progressBar = document.getElementById('progress-bar');
+
+        function updateUI(stepNum) {
+            // Hide all steps
+            steps.forEach(step => {
+                step.classList.add('hidden');
+            });
+            // Show current step
+            document.getElementById(`step-${stepNum}`).classList.remove('hidden');
+
+            // Update Progress Bar
+            progressBar.style.width = `${(stepNum / 4) * 100}%`;
+
+            // Update Indicators
+            indicators.forEach(ind => {
+                const indStep = parseInt(ind.getAttribute('data-step'));
+                const iconContainer = ind.querySelector('div');
+                const text = ind.querySelector('span');
+
+                if (indStep < stepNum) {
+                    // Completed
+                    ind.classList.remove('text-gray-400', 'dark:text-gray-500');
+                    ind.classList.add('text-brand-500');
+                    iconContainer.className = 'w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center shadow-md transition-colors';
+                    iconContainer.innerHTML = '<i class="fa-solid fa-check"></i>';
+                } else if (indStep === stepNum) {
+                    // Current
+                    ind.classList.remove('text-gray-400', 'dark:text-gray-500');
+                    ind.classList.add('text-brand-500');
+                    iconContainer.className = 'w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center shadow-md transition-colors';
+                    iconContainer.innerHTML = indStep;
+                } else {
+                    // Future
+                    ind.classList.remove('text-brand-500');
+                    ind.classList.add('text-gray-400', 'dark:text-gray-500');
+                    iconContainer.className = 'w-8 h-8 rounded-full bg-gray-200 dark:bg-brand-800 flex items-center justify-center transition-colors';
+                    iconContainer.innerHTML = indStep;
+                }
+            });
+        }
+
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const nextStep = parseInt(btn.getAttribute('data-next'));
+                const currentStep = nextStep - 1;
+                
+                // Very basic validation before moving to next step
+                const currentFormStep = document.getElementById(`step-${currentStep}`);
+                const requiredInputs = currentFormStep.querySelectorAll('input[required], select[required]');
+                let isValid = true;
+                
+                requiredInputs.forEach(input => {
+                    if (input.type === 'radio') {
+                        const name = input.name;
+                        const checked = currentFormStep.querySelector(`input[name="${name}"]:checked`);
+                        if (!checked) isValid = false;
+                    } else if (!input.checkValidity()) {
+                        isValid = false;
+                        input.classList.add('border-red-500');
+                        input.reportValidity();
+                    } else {
+                        input.classList.remove('border-red-500');
+                    }
+                });
+
+                if (isValid) {
+                    updateUI(nextStep);
+                } else {
+                    // Quick visual shake or alert
+                    currentFormStep.classList.add('animate-pulse');
+                    setTimeout(() => currentFormStep.classList.remove('animate-pulse'), 500);
+                }
+            });
+        });
+
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const prevStep = parseInt(btn.getAttribute('data-prev'));
+                updateUI(prevStep);
+            });
+        });
+    });
+</script>
+{% endblock %}
