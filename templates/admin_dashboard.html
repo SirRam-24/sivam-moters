@@ -178,8 +178,64 @@
                 </div>
             </div>
             
+            <!-- Bookings List -->
+            <div class="bg-white rounded-2xl shadow-sm border border-brand-200 overflow-hidden mt-8">
+                <div class="bg-brand-500 px-6 py-4 border-b border-brand-600 flex justify-between items-center">
+                    <h3 class="text-xl font-heading font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check"></i> Service Bookings
+                    </h3>
+                    <span class="bg-white text-brand-700 text-xs font-bold px-2 py-1 rounded-full">{{ bookings|length }} new</span>
+                </div>
+                
+                <div class="p-0 divide-y divide-gray-100">
+                    {% if bookings %}
+                        {% for booking in bookings %}
+                        <div class="p-6 hover:bg-gray-50 transition border-l-4 border-transparent hover:border-brand-500">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg">{{ booking.name }} <span class="text-sm font-normal text-gray-500 ml-2"><i class="fa-solid fa-phone text-xs"></i> {{ booking.phone }}</span></h4>
+                                    <div class="inline-flex items-center gap-2 bg-brand-50 text-brand-700 px-3 py-1 rounded-md text-sm font-semibold mt-2 border border-brand-100">
+                                        <i class="fa-solid fa-wrench"></i> {{ booking.service }}
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 px-4 py-2 rounded-lg text-center border border-gray-200 min-w-[140px]">
+                                    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Appointment</div>
+                                    <div class="font-bold text-gray-900"><i class="fa-regular fa-calendar text-brand-500 mr-1"></i> {{ booking.date }}</div>
+                                    <div class="text-sm font-semibold text-brand-600"><i class="fa-regular fa-clock text-brand-500 mr-1"></i> {{ booking.time }}</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
+                                    <i class="fa-solid fa-car"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">Vehicle</div>
+                                    <div class="font-semibold text-gray-800 text-sm">{{ booking.car_details }}</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 flex gap-3">
+                                <a href="tel:{{ booking.phone }}" class="flex-1 text-center bg-white border border-gray-300 hover:border-brand-500 hover:text-brand-600 px-4 py-2 rounded-lg text-sm font-medium transition shadow-sm">
+                                    <i class="fa-solid fa-phone mr-1"></i> Call Customer
+                                </a>
+                                <a href="https://wa.me/{{ booking.phone|replace(' ', '')|replace('+', '') }}" target="_blank" class="flex-1 text-center bg-green-50 border border-green-200 text-green-700 hover:bg-green-100 px-4 py-2 rounded-lg text-sm font-medium transition shadow-sm">
+                                    <i class="fa-brands fa-whatsapp mr-1 text-lg"></i> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-center py-12 text-gray-500">
+                            <i class="fa-regular fa-calendar-xmark text-4xl mb-3 text-gray-300"></i>
+                            <p>No service bookings found.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
             <!-- Contact Submissions -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden mt-8">
                 <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                     <h3 class="text-xl font-heading font-bold text-gray-900 flex items-center gap-2">
                         <i class="fa-solid fa-envelope-open-text text-gray-600"></i> Recent Inquiries
