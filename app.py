@@ -26,6 +26,7 @@ client = MongoClient('mongodb+srv://sriram:1324sriram@cluster0.cco8c4s.mongodb.n
 db = client['sivam_motors']
 cars_collection = db['cars']
 contacts_collection = db['contacts']
+reviews_collection = db['reviews']
 
 # Upload Configuration
 UPLOAD_FOLDER = 'static/uploads'
@@ -41,8 +42,55 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    cars = list(cars_collection.find().limit(6))
-    return render_template('index.html', cars=cars)
+    cars = list(cars_collection.find())
+    reviews = list(reviews_collection.find().sort('created_at', -1))
+    my_review_ids = session.get('my_review_ids', [])
+    return render_template('index.html', cars=cars, reviews=reviews, my_review_ids=my_review_ids)
+
+@app.route('/add_review', methods=['POST'])
+def add_review():
+    name = request.form.get('name')
+    rating = request.form.get('rating', type=int)
+    comment = request.form.get('comment')
+    
+    if name and rating and comment:
+        result = reviews_collection.insert_one({
+            'name': name,
+            'rating': rating,
+            'comment': comment,
+            'created_at': datetime.now()
+        })
+        
+        # Save review ID to session to track ownership
+        review_id_str = str(result.inserted_id)
+        if 'my_review_ids' not in session:
+            session['my_review_ids'] = []
+        
+        my_review_ids = session['my_review_ids']
+        my_review_ids.append(review_id_str)
+        session['my_review_ids'] = my_review_ids
+        
+        flash('Thank you for your review!', 'success')
+    else:
+        flash('Please fill out all fields for the review.', 'error')
+        
+    return redirect(url_for('index') + '#testimonials')
+
+@app.route('/delete_review/<review_id>', methods=['POST'])
+def delete_review(review_id):
+    my_review_ids = session.get('my_review_ids', [])
+    is_admin = session.get('admin_logged_in', False)
+    
+    if review_id in my_review_ids or is_admin:
+        reviews_collection.delete_one({'_id': ObjectId(review_id)})
+        if review_id in my_review_ids:
+            my_review_ids.remove(review_id)
+            session['my_review_ids'] = my_review_ids
+        flash('Review deleted successfully.', 'success')
+    else:
+        flash('You do not have permission to delete this review.', 'error')
+        
+    return redirect(url_for('index') + '#testimonials')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
