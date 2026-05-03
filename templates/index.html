@@ -23,8 +23,9 @@
         <span class="inline-block py-1 px-3 rounded-full bg-brand-500/20 text-brand-500 font-semibold text-sm mb-6 border border-brand-500/30 backdrop-blur-sm">
             Sri Sivam Motors &bull; Dindigul
         </span>
-        <h1 class="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight tracking-tight">
-            Find Your Dream Car or <br/><span class="text-gradient">Service Your Vehicle Today</span>
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight tracking-tight min-h-[140px] md:min-h-[160px] lg:min-h-[220px]">
+            Find Your Dream Car or <br/>
+            <span class="text-gradient" id="typing-text"></span><span id="typing-cursor" class="text-brand-500 font-light ml-1">|</span>
         </h1>
         <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
             Reliable care for every car. From top-tier mechanical repairs to premium rental vehicles, we ensure you always drive with confidence.
@@ -50,7 +51,7 @@
 <!-- Services Overview -->
 <section id="services" class="py-24 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-in delay-100">
+        <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
             <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">Our Expertise</h2>
             <h3 class="text-4xl font-heading font-bold text-brand-900 mb-4">Comprehensive Car Services</h3>
             <p class="text-gray-600 text-lg">Modern tools, skilled mechanics, and a strong commitment to accurate diagnosis and affordable pricing.</p>
@@ -58,7 +59,7 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Service 1 -->
-            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100">
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100 scroll-reveal delay-100">
                 <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
                     <i class="fa-solid fa-oil-can text-2xl"></i>
                 </div>
@@ -70,7 +71,7 @@
             </div>
             
             <!-- Service 2 -->
-            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100">
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100 scroll-reveal delay-200">
                 <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
                     <i class="fa-solid fa-engine text-2xl"></i>
                 </div>
@@ -82,7 +83,7 @@
             </div>
             
             <!-- Service 3 -->
-            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100">
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100 scroll-reveal delay-300">
                 <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
                     <i class="fa-solid fa-snowflake text-2xl"></i>
                 </div>
@@ -94,7 +95,7 @@
             </div>
             
             <!-- Service 4 -->
-            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100">
+            <div class="bg-gray-50 rounded-2xl p-8 hover:bg-brand-gradient hover:text-white transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-100 scroll-reveal delay-400">
                 <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
                     <i class="fa-solid fa-tire text-2xl"></i>
                 </div>
@@ -106,7 +107,7 @@
             </div>
         </div>
         
-        <div class="mt-12 text-center">
+        <div class="mt-12 text-center scroll-reveal delay-200">
             <p class="text-gray-500 mb-4">Also offering: Brake Inspection, Suspension Work, Electrical Repairs, & Computer Scanning.</p>
             <a href="{{ url_for('contact') }}" class="btn-primary inline-block px-8 py-3 rounded-full font-semibold shadow-lg">View All Services</a>
         </div>
@@ -116,7 +117,7 @@
 <!-- Featured Cars Section -->
 <section id="cars" class="py-24 bg-gray-50 border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12 animate-fade-in delay-200">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 scroll-reveal">
             <div class="max-w-2xl">
                 <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">Premium Fleet</h2>
                 <h3 class="text-4xl font-heading font-bold text-brand-900">Featured Cars</h3>
@@ -129,7 +130,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% if cars %}
                 {% for car in cars %}
-                <div class="glass-card rounded-2xl overflow-hidden bg-white">
+                <div class="glass-card rounded-2xl overflow-hidden bg-white scroll-reveal" style="transition-delay: {{ loop.index0 * 100 }}ms;">
                     <div class="relative h-56 overflow-hidden">
                         <img src="{{ car.image_url if car.image_url else url_for('static', filename=car.image_path) }}" alt="{{ car.name }}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-brand-900 shadow">
@@ -172,7 +173,7 @@
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group scroll-reveal-left">
                 <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sri Sivam Motors Workshop" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-900/90 to-transparent"></div>
                 <div class="absolute bottom-6 left-6 right-6">
@@ -181,7 +182,7 @@
                 </div>
             </div>
             
-            <div>
+            <div class="scroll-reveal-right">
                 <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">Why Choose Us</h2>
                 <h3 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Trust, Built on Reliability</h3>
                 <p class="text-gray-300 text-lg mb-8 leading-relaxed">
@@ -204,4 +205,194 @@
         </div>
     </div>
 </section>
+
+<!-- Video Showcase Section -->
+<section id="video-showcase" class="py-24 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+            <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">See Us In Action</h2>
+            <h3 class="text-4xl font-heading font-bold text-brand-900 mb-4">Inside Sri Sivam Motors</h3>
+            <p class="text-gray-600 text-lg">Take a quick tour of our state-of-the-art facility and see how we care for your vehicles with precision and dedication.</p>
+        </div>
+        
+        <div id="video-container" class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 scroll-reveal delay-200 group aspect-video max-w-5xl mx-auto bg-black cursor-pointer" onclick="toggleVideo()">
+            <div id="video-overlay" class="absolute inset-0 bg-brand-900/40 transition-opacity duration-500 z-10 pointer-events-none"></div>
+            
+            <!-- Video Element -->
+            <video id="promo-video" class="w-full h-full object-cover" playsinline poster="https://images.unsplash.com/photo-1625047509168-a7026f36de04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+                <source src="{{ url_for('static', filename='uploads/WhatsApp Video 2026-05-02 at 10.08.49 PM.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- Play Button Overlay -->
+            <div id="play-btn" class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none transition-opacity duration-300">
+                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-brand-500/90 backdrop-blur-md flex items-center justify-center text-white shadow-[0_0_40px_rgba(16,185,129,0.5)] transform transition-transform duration-500 group-hover:scale-110 group-hover:bg-brand-500">
+                    <i class="fa-solid fa-play text-3xl md:text-4xl ml-2"></i>
+                </div>
+            </div>
+            
+            <!-- Bottom Labels -->
+            <div id="video-label" class="absolute bottom-6 left-6 right-6 flex justify-between items-end z-20 pointer-events-none transition-opacity duration-300">
+                <div>
+                    <span class="px-4 py-2 bg-black/60 backdrop-blur-md rounded-full text-white text-xs font-bold tracking-wider border border-white/10 shadow-lg">
+                        <i class="fa-solid fa-video mr-2 text-brand-500"></i> WORKSHOP TOUR
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 text-center scroll-reveal delay-300">
+            <p class="text-gray-500 mb-4">Want to see more? Follow us on our social channels.</p>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="w-12 h-12 rounded-full bg-white border border-gray-200 text-brand-900 flex items-center justify-center hover:bg-brand-500 hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1"><i class="fa-brands fa-youtube text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-white border border-gray-200 text-brand-900 flex items-center justify-center hover:bg-brand-500 hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-white border border-gray-200 text-brand-900 flex items-center justify-center hover:bg-brand-500 hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Player Script -->
+<script>
+    function toggleVideo() {
+        const video = document.getElementById('promo-video');
+        const playBtn = document.getElementById('play-btn');
+        const overlay = document.getElementById('video-overlay');
+        const label = document.getElementById('video-label');
+        
+        if (video.paused) {
+            video.play();
+            // Unmute the video when explicitly clicked by user
+            video.muted = false; 
+            playBtn.classList.add('opacity-0');
+            overlay.classList.add('opacity-0');
+            label.classList.add('opacity-0');
+        } else {
+            video.pause();
+            playBtn.classList.remove('opacity-0');
+            overlay.classList.remove('opacity-0');
+            label.classList.remove('opacity-0');
+        }
+    }
+</script>
+
+<!-- Typing Animation Script & Styles -->
+<style>
+    /* Cursor blinking animation */
+    #typing-cursor {
+        animation: blink 1s step-end infinite;
+    }
+    #typing-cursor.typing {
+        animation: none;
+        opacity: 1;
+    }
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+    /* Scroll Reveal Animations */
+    .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+    .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .scroll-reveal-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+    .scroll-reveal-left.revealed {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .scroll-reveal-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+    .scroll-reveal-right.revealed {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .scroll-reveal.delay-100, .scroll-reveal-left.delay-100, .scroll-reveal-right.delay-100 { transition-delay: 100ms; }
+    .scroll-reveal.delay-200, .scroll-reveal-left.delay-200, .scroll-reveal-right.delay-200 { transition-delay: 200ms; }
+    .scroll-reveal.delay-300, .scroll-reveal-left.delay-300, .scroll-reveal-right.delay-300 { transition-delay: 300ms; }
+    .scroll-reveal.delay-400, .scroll-reveal-left.delay-400, .scroll-reveal-right.delay-400 { transition-delay: 400ms; }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Typing Animation Logic ---
+        const textArray = [
+            "Service Your Vehicle Today", 
+            "Experience Premium Maintenance", 
+            "Drive With Complete Confidence"
+        ];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000; // Delay between current and next text
+        let textArrayIndex = 0;
+        let charIndex = 0;
+        
+        const typedTextSpan = document.getElementById("typing-text");
+        const cursorSpan = document.getElementById("typing-cursor");
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                textArrayIndex++;
+                if(textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 500);
+            }
+        }
+
+        if(textArray.length && typedTextSpan) {
+            setTimeout(type, 1000);
+        }
+
+        // --- Scroll Reveal Logic ---
+        const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    // Optional: stop observing once revealed so it doesn't animate out
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.1, // Trigger when 10% of element is visible
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    });
+</script>
 {% endblock %}
