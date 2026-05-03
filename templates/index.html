@@ -34,7 +34,7 @@
             <a href="#cars" class="btn-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg flex items-center justify-center gap-3">
                 <i class="fa-solid fa-car"></i> Browse Cars
             </a>
-            <a href="#services" class="btn-outline px-8 py-4 rounded-full font-bold text-lg backdrop-blur-sm flex items-center justify-center gap-3">
+            <a href="{{ url_for('booking') }}" class="btn-outline px-8 py-4 rounded-full font-bold text-lg backdrop-blur-sm flex items-center justify-center gap-3">
                 <i class="fa-solid fa-wrench"></i> Book Service
             </a>
         </div>
@@ -65,7 +65,7 @@
                 </div>
                 <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 dark:text-white">Oil Change</h4>
                 <p class="text-gray-600 dark:text-gray-400 mb-6">Periodic maintenance and premium oil replacement for engine longevity.</p>
-                <a href="{{ url_for('contact') }}?subject=Oil+Change" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
+                <a href="{{ url_for('booking') }}" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
                     Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
@@ -77,7 +77,7 @@
                 </div>
                 <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 dark:text-white">Engine Repair</h4>
                 <p class="text-gray-600 dark:text-gray-400 mb-6">Advanced diagnostics, overhaul, and repairs by expert mechanical specialists.</p>
-                <a href="{{ url_for('contact') }}?subject=Engine+Repair" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
+                <a href="{{ url_for('booking') }}" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
                     Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
@@ -89,7 +89,7 @@
                 </div>
                 <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 dark:text-white">AC Service</h4>
                 <p class="text-gray-600 dark:text-gray-400 mb-6">Complete air conditioning diagnostics, gas refilling, and cooling system repair.</p>
-                <a href="{{ url_for('contact') }}?subject=AC+Service" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
+                <a href="{{ url_for('booking') }}" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
                     Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
@@ -101,7 +101,7 @@
                 </div>
                 <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 dark:text-white">Wheel Alignment</h4>
                 <p class="text-gray-600 dark:text-gray-400 mb-6">Precision computer alignment and balancing for smooth driving and tire life.</p>
-                <a href="{{ url_for('contact') }}?subject=Wheel+Alignment" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
+                <a href="{{ url_for('booking') }}" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
                     Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
