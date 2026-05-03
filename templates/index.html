@@ -49,104 +49,104 @@
 </section>
 
 <!-- Services Overview -->
-<section id="services" class="py-24 bg-white relative">
+<section id="services" class="py-24 bg-white dark:bg-brand-950 relative transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
             <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">Our Expertise</h2>
-            <h3 class="text-4xl font-heading font-bold text-brand-900 mb-4">Comprehensive Car Services</h3>
-            <p class="text-gray-600 text-lg">Modern tools, skilled mechanics, and a strong commitment to accurate diagnosis and affordable pricing.</p>
+            <h3 class="text-4xl font-heading font-bold text-brand-900 dark:text-white mb-4">Comprehensive Car Services</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">Modern tools, skilled mechanics, and a strong commitment to accurate diagnosis and affordable pricing.</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Service 1 -->
-            <div class="bg-gray-50 rounded-2xl p-8 transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-200 hover:border-brand-300 scroll-reveal delay-100">
-                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
+            <div class="bg-gray-50 dark:bg-brand-900 rounded-2xl p-8 transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-200 dark:border-brand-800 hover:border-brand-300 dark:hover:border-brand-500 scroll-reveal delay-100">
+                <div class="w-16 h-16 rounded-full bg-white dark:bg-brand-800 shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600 dark:text-brand-500">
                     <i class="fa-solid fa-oil-can text-2xl"></i>
                 </div>
-                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900">Oil Change</h4>
-                <p class="text-gray-600 mb-6">Periodic maintenance and premium oil replacement for engine longevity.</p>
-                <a href="{{ url_for('contact') }}?subject=Oil+Change" class="font-semibold text-brand-600 hover:text-brand-800 inline-flex items-center gap-2">
+                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 dark:text-white">Oil Change</h4>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Periodic maintenance and premium oil replacement for engine longevity.</p>
+                <a href="{{ url_for('contact') }}?subject=Oil+Change" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
                     Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
             
             <!-- Service 2 -->
-            <div class="bg-gray-50 rounded-2xl p-8 transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-200 hover:border-brand-300 scroll-reveal delay-200">
-                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
+            <div class="bg-gray-50 dark:bg-brand-900 rounded-2xl p-8 transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-200 dark:border-brand-800 hover:border-brand-300 dark:hover:border-brand-500 scroll-reveal delay-200">
+                <div class="w-16 h-16 rounded-full bg-white dark:bg-brand-800 shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600 dark:text-brand-500">
                     <i class="fa-solid fa-engine text-2xl"></i>
                 </div>
-                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900">Engine Repair</h4>
-                <p class="text-gray-600 mb-6">Advanced diagnostics, overhaul, and repairs by expert mechanical specialists.</p>
-                <a href="{{ url_for('contact') }}?subject=Engine+Repair" class="font-semibold text-brand-600 hover:text-brand-800 inline-flex items-center gap-2">
+                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 dark:text-white">Engine Repair</h4>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Advanced diagnostics, overhaul, and repairs by expert mechanical specialists.</p>
+                <a href="{{ url_for('contact') }}?subject=Engine+Repair" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
                     Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
             
             <!-- Service 3 -->
-            <div class="bg-gray-50 rounded-2xl p-8 transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-200 hover:border-brand-300 scroll-reveal delay-300">
-                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
+            <div class="bg-gray-50 dark:bg-brand-900 rounded-2xl p-8 transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-200 dark:border-brand-800 hover:border-brand-300 dark:hover:border-brand-500 scroll-reveal delay-300">
+                <div class="w-16 h-16 rounded-full bg-white dark:bg-brand-800 shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600 dark:text-brand-500">
                     <i class="fa-solid fa-snowflake text-2xl"></i>
                 </div>
-                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900">AC Service</h4>
-                <p class="text-gray-600 mb-6">Complete air conditioning diagnostics, gas refilling, and cooling system repair.</p>
-                <a href="{{ url_for('contact') }}?subject=AC+Service" class="font-semibold text-brand-600 hover:text-brand-800 inline-flex items-center gap-2">
+                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 dark:text-white">AC Service</h4>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Complete air conditioning diagnostics, gas refilling, and cooling system repair.</p>
+                <a href="{{ url_for('contact') }}?subject=AC+Service" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
                     Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
             
             <!-- Service 4 -->
-            <div class="bg-gray-50 rounded-2xl p-8 transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-200 hover:border-brand-300 scroll-reveal delay-400">
-                <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600">
+            <div class="bg-gray-50 dark:bg-brand-900 rounded-2xl p-8 transition-all duration-300 group shadow-sm hover:shadow-xl transform hover:-translate-y-2 border border-gray-200 dark:border-brand-800 hover:border-brand-300 dark:hover:border-brand-500 scroll-reveal delay-400">
+                <div class="w-16 h-16 rounded-full bg-white dark:bg-brand-800 shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform text-brand-600 dark:text-brand-500">
                     <i class="fa-solid fa-tire text-2xl"></i>
                 </div>
-                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900">Wheel Alignment</h4>
-                <p class="text-gray-600 mb-6">Precision computer alignment and balancing for smooth driving and tire life.</p>
-                <a href="{{ url_for('contact') }}?subject=Wheel+Alignment" class="font-semibold text-brand-600 hover:text-brand-800 inline-flex items-center gap-2">
+                <h4 class="text-xl font-bold mb-3 font-heading text-brand-900 dark:text-white">Wheel Alignment</h4>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Precision computer alignment and balancing for smooth driving and tire life.</p>
+                <a href="{{ url_for('contact') }}?subject=Wheel+Alignment" class="font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 inline-flex items-center gap-2">
                     Book Service <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
         </div>
         
         <div class="mt-12 text-center scroll-reveal delay-200">
-            <p class="text-gray-500 mb-4">Also offering: Brake Inspection, Suspension Work, Electrical Repairs, & Computer Scanning.</p>
+            <p class="text-gray-500 dark:text-gray-400 mb-4">Also offering: Brake Inspection, Suspension Work, Electrical Repairs, & Computer Scanning.</p>
             <a href="{{ url_for('contact') }}" class="btn-primary inline-block px-8 py-3 rounded-full font-semibold shadow-lg">View All Services</a>
         </div>
     </div>
 </section>
 
 <!-- Featured Cars Section -->
-<section id="cars" class="py-24 bg-gray-50 border-t border-gray-200">
+<section id="cars" class="py-24 bg-gray-50 dark:bg-brand-950 border-t border-gray-200 dark:border-brand-900 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-center md:items-end text-center md:text-left mb-12 scroll-reveal">
             <div class="max-w-2xl">
                 <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">Premium Fleet</h2>
-                <h3 class="text-4xl font-heading font-bold text-brand-900">Featured Cars</h3>
+                <h3 class="text-4xl font-heading font-bold text-brand-900 dark:text-white">Featured Cars</h3>
             </div>
             <div class="mt-4 md:mt-0">
-                <span class="text-gray-500 text-sm italic">Showing top highlights</span>
+                <span class="text-gray-500 dark:text-gray-400 text-sm italic">Showing top highlights</span>
             </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% if cars %}
                 {% for car in cars %}
-                <div class="glass-card rounded-2xl overflow-hidden bg-white scroll-reveal" style="transition-delay: {{ loop.index0 * 100 }}ms;">
+                <div class="glass-card rounded-2xl overflow-hidden bg-white dark:bg-brand-900/50 border dark:border-brand-800 scroll-reveal" style="transition-delay: {{ loop.index0 * 100 }}ms;">
                     <div class="relative h-56 overflow-hidden">
                         <img src="{{ car.image_url if car.image_url else url_for('static', filename=car.image_path) }}" alt="{{ car.name }}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-brand-900 shadow">
+                        <div class="absolute top-4 right-4 bg-white/90 dark:bg-brand-900/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-brand-900 dark:text-white shadow">
                             {{ car.type }}
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-4">
-                            <h4 class="text-2xl font-bold font-heading text-brand-900">{{ car.name }}</h4>
-                            <span class="text-brand-600 font-bold text-lg">{{ car.price }}</span>
+                            <h4 class="text-2xl font-bold font-heading text-brand-900 dark:text-white">{{ car.name }}</h4>
+                            <span class="text-brand-600 dark:text-brand-400 font-bold text-lg">{{ car.price }}</span>
                         </div>
-                        <div class="flex gap-4 text-sm text-gray-500 mb-6 border-t border-gray-100 pt-4">
+                        <div class="flex gap-4 text-sm text-gray-500 dark:text-gray-400 mb-6 border-t border-gray-100 dark:border-brand-800 pt-4">
                             <span class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Quality Inspected</span>
                             <span class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Ready to Drive</span>
                         </div>
-                        <a href="{{ url_for('contact') }}?subject=Inquiry+about+{{ car.name }}" class="btn-outline w-full block text-center py-3 rounded-lg font-semibold text-brand-900 border-gray-300 hover:text-white hover:border-brand-500">
+                        <a href="{{ url_for('contact') }}?subject=Inquiry+about+{{ car.name }}" class="btn-outline w-full block text-center py-3 rounded-lg font-semibold text-brand-900 dark:text-white border-gray-300 dark:border-brand-700 hover:text-white hover:bg-brand-500 hover:border-brand-500 transition-colors">
                             View Details
                         </a>
                     </div>
@@ -154,11 +154,11 @@
                 {% endfor %}
             {% else %}
                 <div class="col-span-full text-center py-12">
-                    <div class="inline-block p-6 rounded-full bg-gray-100 text-gray-400 mb-4">
+                    <div class="inline-block p-6 rounded-full bg-gray-100 dark:bg-brand-900 text-gray-400 dark:text-gray-500 mb-4">
                         <i class="fa-solid fa-car-side text-4xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-600 mb-2">Inventory Loading Soon</h4>
-                    <p class="text-gray-500">Check back later for our premium selection of cars.</p>
+                    <h4 class="text-xl font-bold text-gray-600 dark:text-gray-300 mb-2">Inventory Loading Soon</h4>
+                    <p class="text-gray-500 dark:text-gray-400">Check back later for our premium selection of cars.</p>
                 </div>
             {% endif %}
         </div>
@@ -166,9 +166,9 @@
 </section>
 
 <!-- Brands We Service Marquee -->
-<div class="bg-white border-y border-gray-100 py-10 overflow-hidden flex shadow-sm relative">
-    <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-    <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+<div class="bg-white dark:bg-brand-950 border-y border-gray-100 dark:border-brand-900 py-10 overflow-hidden flex shadow-sm relative transition-colors duration-300">
+    <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white dark:from-brand-950 to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white dark:from-brand-950 to-transparent z-10 pointer-events-none"></div>
     <div class="flex animate-marquee whitespace-nowrap items-center space-x-24 px-8">
         <!-- Brand Logo Items -->
         <img src="https://cdn.simpleicons.org/toyota" alt="Toyota" class="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 cursor-pointer">
@@ -234,12 +234,12 @@
 </section>
 
 <!-- Video Showcase Section -->
-<section id="video-showcase" class="py-24 bg-gray-50 border-t border-gray-200">
+<section id="video-showcase" class="py-24 bg-gray-50 dark:bg-brand-950 border-t border-gray-200 dark:border-brand-900 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
             <h2 class="text-brand-500 font-semibold tracking-wider uppercase text-sm mb-2">See Us In Action</h2>
-            <h3 class="text-4xl font-heading font-bold text-brand-900 mb-4">Inside Sri Sivam Motors</h3>
-            <p class="text-gray-600 text-lg">Take a quick tour of our state-of-the-art facility and see how we care for your vehicles with precision and dedication.</p>
+            <h3 class="text-4xl font-heading font-bold text-brand-900 dark:text-white mb-4">Inside Sri Sivam Motors</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">Take a quick tour of our state-of-the-art facility and see how we care for your vehicles with precision and dedication.</p>
         </div>
         
         <div id="video-container" class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 scroll-reveal delay-200 group aspect-video max-w-5xl mx-auto bg-black cursor-pointer" onclick="toggleVideo()">
@@ -269,11 +269,11 @@
         </div>
         
         <div class="mt-12 text-center scroll-reveal delay-300">
-            <p class="text-gray-500 mb-4">Want to see more? Follow us on our social channels.</p>
+            <p class="text-gray-500 dark:text-gray-400 mb-4">Want to see more? Follow us on our social channels.</p>
             <div class="flex justify-center gap-4">
-                <a href="#" class="w-12 h-12 rounded-full bg-white border border-gray-200 text-brand-900 flex items-center justify-center hover:bg-brand-500 hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1"><i class="fa-brands fa-youtube text-xl"></i></a>
-                <a href="#" class="w-12 h-12 rounded-full bg-white border border-gray-200 text-brand-900 flex items-center justify-center hover:bg-brand-500 hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="#" class="w-12 h-12 rounded-full bg-white border border-gray-200 text-brand-900 flex items-center justify-center hover:bg-brand-500 hover:text-white hover:border-transparent transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-white dark:bg-brand-900 border border-gray-200 dark:border-brand-800 text-brand-900 dark:text-white flex items-center justify-center hover:bg-brand-500 dark:hover:bg-brand-500 hover:text-white hover:border-transparent dark:hover:border-transparent transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1"><i class="fa-brands fa-youtube text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-white dark:bg-brand-900 border border-gray-200 dark:border-brand-800 text-brand-900 dark:text-white flex items-center justify-center hover:bg-brand-500 dark:hover:bg-brand-500 hover:text-white hover:border-transparent dark:hover:border-transparent transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full bg-white dark:bg-brand-900 border border-gray-200 dark:border-brand-800 text-brand-900 dark:text-white flex items-center justify-center hover:bg-brand-500 dark:hover:bg-brand-500 hover:text-white hover:border-transparent dark:hover:border-transparent transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1"><i class="fa-brands fa-facebook-f text-xl"></i></a>
             </div>
         </div>
     </div>
