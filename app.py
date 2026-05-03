@@ -11,6 +11,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -29,6 +30,7 @@ db = client['sivam_motors']
 cars_collection = db['cars']
 contacts_collection = db['contacts']
 reviews_collection = db['reviews']
+bookings_collection = db['bookings']
 
 # Upload Configuration
 UPLOAD_FOLDER = 'static/uploads'
@@ -112,6 +114,38 @@ def contact():
         
     return render_template('contact.html')
 
+@app.route('/booking')
+def booking():
+    return render_template('booking.html')
+
+@app.route('/submit_booking', methods=['POST'])
+def submit_booking():
+    service = request.form.get('service')
+    make = request.form.get('make')
+    model = request.form.get('model')
+    year = request.form.get('year')
+    date = request.form.get('date')
+    time = request.form.get('time')
+    name = request.form.get('name')
+    phone = request.form.get('phone')
+    
+    if all([service, make, model, date, time, name, phone]):
+        bookings_collection.insert_one({
+            'service': service,
+            'car_details': f"{year} {make} {model}",
+            'date': date,
+            'time': time,
+            'name': name,
+            'phone': phone,
+            'created_at': datetime.now()
+        })
+        flash('Booking confirmed successfully!', 'success')
+        # Here we could redirect to a success page, but we'll use flash messages for now.
+        return redirect(url_for('index'))
+    else:
+        flash('Please fill out all required fields.', 'error')
+        return redirect(url_for('booking'))
+
 @app.route('/admin/login', methods=['GET', 'POST'])
 def admin_login():
     if request.method == 'POST':
@@ -138,7 +172,8 @@ def admin_dashboard():
         
     contacts = list(contacts_collection.find().sort('created_at', -1))
     cars = list(cars_collection.find().sort('created_at', -1))
-    return render_template('admin_dashboard.html', contacts=contacts, cars=cars)
+    bookings = list(bookings_collection.find().sort('created_at', -1))
+    return render_template('admin_dashboard.html', contacts=contacts, cars=cars, bookings=bookings)
 
 @app.route('/admin/add_car', methods=['POST'])
 def add_car():
